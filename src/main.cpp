@@ -1,8 +1,7 @@
 #include "headers/Configs.h"
 #include "headers/Bird.h"
 #include "headers/MoveMap.h"
-#define RAYGUI_IMPLEMENTATION 
-#include <raygui.h>
+#include <iostream>
 
 bool Pause = false;
 
@@ -48,22 +47,20 @@ void Init(void)
 	InitWindow(WINDOW_WIDTH, WINDOW_HEIGHT, "Flapy Bird IA");
 	SetTargetFPS(60);
 
-	GuiLoadStyle("images/Dark.rgs");
-
-	Image icon = LoadImage("images/icon.png");
+	Image icon = LoadImage("src/images/icon.png");
 	SetWindowIcon(icon);
 	UnloadImage(icon);
 		
-	tBird[0] = LoadTexture("images/bird0.png");
-	tBird[1] = LoadTexture("images/bird1.png");
-	tBird[2] = LoadTexture("images/bird2.png");
-	tBird[3] = LoadTexture("images/bird3.png");
-	tBird[4] = LoadTexture("images/bird4.png");
-	tBird[5] = LoadTexture("images/bird5.png");
-	tBird[6] = LoadTexture("images/bird6.png");
-	tPipe = LoadTexture("images/pipe.png");
-	tBackground = LoadTexture("images/background.png");
-	tGround = LoadTexture("images/ground.png");
+	tBird[0] = LoadTexture("src/images/bird0.png");
+	tBird[1] = LoadTexture("src/images/bird1.png");
+	tBird[2] = LoadTexture("src/images/bird2.png");
+	tBird[3] = LoadTexture("src/images/bird3.png");
+	tBird[4] = LoadTexture("src/images/bird4.png");
+	tBird[5] = LoadTexture("src/images/bird5.png");
+	tBird[6] = LoadTexture("src/images/bird6.png");
+	tPipe = LoadTexture("src/images/pipe.png");
+	tBackground = LoadTexture("src/images/background.png");
+	tGround = LoadTexture("src/images/ground.png");
 }
 
 void Update(void)
@@ -72,6 +69,14 @@ void Update(void)
 	Pipe::Update();
 	MoveMap();
 
+	if (IsKeyDown(KEY_RIGHT))
+	{
+		FRAME_RATE += 5;
+	}
+	else if (IsKeyDown(KEY_LEFT))
+	{
+		FRAME_RATE -= 5;
+	}
 	if (FRAME_RATE != FRAME_RATE2)
 	{
 		SetTargetFPS(FRAME_RATE);
@@ -89,7 +94,6 @@ void Draw(void)
 	DrawText(TextFormat("Birds: %i", TOTAL_BIRDS - DEAD_BIRDS), WINDOW_WIDTH - 250, 50, 30, WHITE);
 	DrawText(TextFormat("Generation: %i", GENERATION), WINDOW_WIDTH - 250, 80, 30, WHITE);
 
-	FRAME_RATE = GuiSliderBar(Rectangle{ (float)WINDOW_WIDTH - 250, 25, 200, 25 }, "", "", FRAME_RATE, 60, 250);
 }
 
 void Finalize(void)
@@ -107,6 +111,4 @@ void Finalize(void)
 	UnloadTexture(tPipe);
 	UnloadTexture(tBackground);
 	UnloadTexture(tGround);
-
-	std::cout << GetWorkingDirectory() << std::endl;
 }

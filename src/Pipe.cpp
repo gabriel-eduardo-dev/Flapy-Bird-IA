@@ -3,8 +3,8 @@
 Pipe *Pipe::Pipes = new Pipe[MAX_PIPES];
 unsigned short last, index;
 
-std::uniform_int_distribution dist_pipe_height(64, WINDOW_HEIGHT - GROUND_HEIGHT - 64 * 3 - PIPE_IDENT);
-std::uniform_int_distribution dist_pipe_direction(0, 1);
+std::uniform_int_distribution<int> dist_pipe_height(64, WINDOW_HEIGHT - GROUND_HEIGHT - 64 * 3 - PIPE_IDENT);
+std::uniform_int_distribution<int> dist_pipe_direction(0, 1);
 
 Pipe::Pipe(void)
 : x(0)

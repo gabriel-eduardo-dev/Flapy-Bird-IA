@@ -6,9 +6,9 @@ unsigned short Bird_Frame;
 int MAX_RANGE = 1000;
 float range[3];
 
-std::uniform_int_distribution  dist_birdX(0, WINDOW_WIDTH / 2);
-std::uniform_int_distribution  dist_birdY(0, WINDOW_HEIGHT - GROUND_HEIGHT - BIRD_HEIGHT - 100);
-std::uniform_int_distribution  dist_birdSprite(0, 6);
+std::uniform_int_distribution<int>  dist_birdX(0, WINDOW_WIDTH / 2);
+std::uniform_int_distribution<int> dist_birdY(0, WINDOW_HEIGHT - GROUND_HEIGHT - BIRD_HEIGHT - 100);
+std::uniform_int_distribution<int>  dist_birdSprite(0, 6);
 std::uniform_real_distribution<float> dist_weights(-MAX_RANGE, MAX_RANGE);
 
 Bird::Bird(void) :
