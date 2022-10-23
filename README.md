@@ -4,3 +4,9 @@
 Dependencias: cmake, g++ ou clang++
 
 Para rodar o programa apenas execute no terminal "make all"
+
+Teclas de atalho:
+  f -> fullscreen
+  r -> mata a populão
+  arroy-key-right -> aumenta a velocidade
+  arrow-key-left -> diminui a velocidade
