@@ -20,7 +20,9 @@ Bird::Bird(void) :
 	verticalSpeed	(0),
 	pipeColision	(0),
 	score			(0)
-{}
+{
+
+}
 
 void Bird::Delete(void)
 {
@@ -34,11 +36,13 @@ void Bird::Init(void)
 
 	if (GENERATION == 1)
 	{
-		for (unsigned int i = 0; i < TOTAL_BIRDS; i++)
+		for (size_t i = 0; i < TOTAL_BIRDS; i++)
 		{
 			Birds[i] = Bird();
-			for (int j = 0; j < 3; j++)
+			std::cout << "test\n";
+			for (size_t j = 0; j < 3; j++) {
 				Birds[i].weights[j] = dist_weights(mt);
+			}
 		}
 	}
 	else
@@ -53,7 +57,7 @@ void Bird::Init(void)
 		std::uniform_real_distribution<float> dist_weights_1(-(range[1] + (MAX_RANGE / GENERATION), range[1] + (MAX_RANGE / GENERATION)));
 		std::uniform_real_distribution<float> dist_weights_2(-(range[2] + (MAX_RANGE / GENERATION), range[2] + (MAX_RANGE / GENERATION)));
 
-		for (unsigned int i = 0; i < TOTAL_BIRDS; i++)
+		for (size_t i = 0; i < TOTAL_BIRDS; i++)
 		{
 			Birds[i] = Bird();
 			if (i % 2 == 0)
@@ -80,24 +84,26 @@ void Bird::Update(void)
 			Bird_Frame = 0;
 	}
 
-	for (unsigned int i = 0; i < TOTAL_BIRDS; i++)
+	for (size_t i = 0; i < TOTAL_BIRDS; i++)
 	{
 		if (!Birds[i].isDead)
 		{
+			// IA
 			if (!Birds[i].jump)
 			{
 				float total = 0;
 
-				Birds[i].x_distance = Pipes[Birds[i].pipeColision].x - (Birds[i].x + BIRD_WIDTH);
-				Birds[i].y_distance[0] = (Pipes[Birds[i].pipeColision].height) - Birds[i].y;
-				Birds[i].y_distance[1] = (Pipes[Birds[i].pipeColision].height + PIPE_IDENT) - Birds[i].y;
+				Birds[i].x_distance = Pipe::Pipes[Birds[i].pipeColision].x - (Birds[i].x + BIRD_WIDTH);
+				Birds[i].y_distance[0] = (Pipe::Pipes[Birds[i].pipeColision].height) - Birds[i].y;
+				Birds[i].y_distance[1] = (Pipe::Pipes[Birds[i].pipeColision].height + PIPE_IDENT) - Birds[i].y;
 
 				total = Birds[i].x_distance * Birds[i].weights[0];
 				total += Birds[i].y_distance[0] * Birds[i].weights[1];
 				total += Birds[i].y_distance[1] * Birds[i].weights[2];
 
-				if (total > 0)
+				if (total > 0) {
 					Birds[i].jump = true;
+				}
 			}
 
 			//Update Pos
@@ -113,11 +119,11 @@ void Bird::Update(void)
 			Birds[i].rotate = Birds[i].verticalSpeed * 2.5f;
 
 			//Colisions
-			if ((Birds[i].x + BIRD_WIDTH > Pipes[Birds[i].pipeColision].x && Birds[i].x < Pipes[Birds[i].pipeColision].x + PIPE_WIDTH   //btw 
+			if ((Birds[i].x + BIRD_WIDTH > Pipe::Pipes[Birds[i].pipeColision].x && Birds[i].x < Pipe::Pipes[Birds[i].pipeColision].x + PIPE_WIDTH   //btw 
 				&& 
-				((Birds[i].y < Pipes[Birds[i].pipeColision].height) // up
+				((Birds[i].y < Pipe::Pipes[Birds[i].pipeColision].height) // up
 				||
-				Birds[i].y + BIRD_HEIGHT > Pipes[Birds[i].pipeColision].height + PIPE_IDENT)) // down
+				Birds[i].y + BIRD_HEIGHT > Pipe::Pipes[Birds[i].pipeColision].height + PIPE_IDENT)) // down
 
 				|| (Birds[i].y + BIRD_HEIGHT > WINDOW_HEIGHT - GROUND_HEIGHT) // Ground
 				|| (Birds[i].y < 0)) // Sky
@@ -127,7 +133,7 @@ void Bird::Update(void)
 			}
 
 			//Change Pipe colision
-			if (Birds[i].x > Pipes[Birds[i].pipeColision].x + PIPE_WIDTH - 20)
+			if (Birds[i].x > Pipe::Pipes[Birds[i].pipeColision].x + PIPE_WIDTH - 20)
 			{
 				Birds[i].pipeColision++;
 
@@ -156,7 +162,7 @@ void Bird::Update(void)
 	}
 }
 
-void Bird::DrawBirds(void)
+void Bird::Draw(void)
 {
 	for (unsigned int i = 0; i < TOTAL_BIRDS; i++)
 	{

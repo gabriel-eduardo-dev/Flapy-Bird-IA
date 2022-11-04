@@ -12,12 +12,17 @@ class Pipe
 		static void Draw(void);
 		static void Delete(void);
 
+
 	public:
+
+		Pipe();
 
 		float x;
 		float height;
 		bool direction;
-		static Pipe* Pipes;	Pipe();
+		static Pipe* Pipes;
+
+		friend class Bird;
 };
 
 #endif

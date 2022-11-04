@@ -17,7 +17,7 @@ void Pipe::Delete(void)
 
 void Pipe::Init(void)
 {
-	for (int i = 0; i < MAX_PIPES ; i++)
+	for (size_t i = 0; i < MAX_PIPES; i++)
 	{
 		Pipes[i] = Pipe();
 
@@ -73,9 +73,8 @@ void Pipe::Update(void)
 
 void Pipe::Draw(void)
 {
-	for (int i = 0; i < MAX_PIPES; i++)
+	for (size_t i = 0; i < MAX_PIPES; i++)
 	{
-
 		DrawTextureRec(tPipe, Rectangle{ 0, 0, (float)PIPE_WIDTH, -(float)Pipes[i].height }, Vector2{ (float)Pipes[i].x, 0}, WHITE);
 		DrawTextureRec(tPipe, Rectangle{ 0, 0, (float)PIPE_WIDTH, (float)WINDOW_HEIGHT }, Vector2{ (float)Pipes[i].x, (float)Pipes[i].height + PIPE_IDENT }, WHITE);
 	}

@@ -5,14 +5,15 @@
 #include "Pipe.h"
 #include <algorithm> //sort
 #include <cmath> //abs
+#include <iostream>
 
-class Bird : public Pipe
+class Bird 
 {
 	public:
 
 		static void Init(void);
 		static void Update(void);
-		static void DrawBirds(void);
+		static void Draw(void);
 		static void Delete(void);
 
 		inline bool operator() (const Bird& a, const Bird& b)
