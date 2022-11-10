@@ -5,7 +5,7 @@
 - Criei esse projeto simplesmente por diversão e queria explorar um pouco como esse mundo das IA, escolhi implementar isso no flapy bird por ser um jogo bem simples e facil de se recriar.
 - O projeto inclui a criação do jogo e da rede neural.
 - Você pode fazer algumas alterações no arquivo "configs.h" (criada para isso).
-  
+- Foi utilizado a biblioteca grafica [raylib](https://github.com/raysan5/raylib)
 
 ## Dependencias: 
 
