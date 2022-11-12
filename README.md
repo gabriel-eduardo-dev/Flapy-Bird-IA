@@ -17,8 +17,8 @@
   
     git clone https://github.com/Gabriel160204/Flapy-Bird-IA.git
 	mkdir build
-	cmake -S . -B build/
-	make -C build/
+	cmake -S . -B build
+	make -C build
   
 #### Executar ####
 
