@@ -1,10 +1,3 @@
-clear:
-	@clear
 run: bin/flapy
-	@./bin/flapy
-build:
-	cmake -S . -B build/
-comp:
-	make -C build/
+	@bin/./flapy
 
-all: clear build comp run
