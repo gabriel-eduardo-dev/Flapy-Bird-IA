@@ -6,13 +6,21 @@
 - O projeto inclui a criação do jogo e da rede neural.
 - Você pode fazer algumas alterações no arquivo "configs.h" (criada para isso).
 - Foi utilizado a biblioteca grafica [raylib](https://github.com/raysan5/raylib)
+- Multiplataforma
 
 ## Dependencias: 
 
 * cmake 
 * compilador c++
 
-## Para rodar o programa apenas execute no terminal "make all"
+### Build ###
+  
+    git clone https://github.com/Gabriel160204/Flapy-Bird-IA.git
+    make build
+  
+#### Executar ####
+
+    make all
 
 ### Teclas de atalho
 * f -> Fullscreen
