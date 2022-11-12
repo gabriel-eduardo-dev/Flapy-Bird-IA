@@ -5,7 +5,6 @@
 #include "Pipe.h"
 #include <algorithm> //sort
 #include <cmath> //abs
-#include <iostream>
 
 class Bird 
 {

@@ -39,7 +39,6 @@ void Bird::Init(void)
 		for (size_t i = 0; i < TOTAL_BIRDS; i++)
 		{
 			Birds[i] = Bird();
-			std::cout << "test\n";
 			for (size_t j = 0; j < 3; j++) {
 				Birds[i].weights[j] = dist_weights(mt);
 			}
