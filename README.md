@@ -22,7 +22,7 @@
   
 #### Executar ####
 
-    make all
+    make run
 
 ### Teclas de atalho
 * f -> Fullscreen
