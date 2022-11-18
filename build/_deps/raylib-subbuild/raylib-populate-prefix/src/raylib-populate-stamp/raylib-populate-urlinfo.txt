@@ -1,0 +1,3 @@
+repository='external project URL'
+module='https://github.com/raysan5/raylib/archive/refs/tags/4.2.0.tar.gz'
+tag=''

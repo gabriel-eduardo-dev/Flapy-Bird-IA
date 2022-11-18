@@ -9,4 +9,4 @@ build:
 	make -C build
 
 run: bin/flapy
-	bin/./flapy.out
+	bin/./flapy

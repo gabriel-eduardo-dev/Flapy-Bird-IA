@@ -1,0 +1,1 @@
+/usr/bin/c++ CMakeFiles/flapy.dir/src/main.cpp.o CMakeFiles/flapy.dir/src/Bird.cpp.o CMakeFiles/flapy.dir/src/Pipe.cpp.o -o ../bin/flapy  _deps/raylib-build/raylib/libraylib.a -lm -latomic -lpthread /usr/lib/x86_64-linux-gnu/libGL.so _deps/raylib-build/raylib/external/glfw/src/libglfw3.a /usr/lib/x86_64-linux-gnu/librt.a -lm -ldl 
